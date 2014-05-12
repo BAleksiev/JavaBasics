@@ -8,14 +8,7 @@ public class CountOfBitsOne {
         Scanner input = new Scanner(System.in);
         
         int n = input.nextInt();
-        char[] bin = Integer.toBinaryString(n).toCharArray();
-        int count = 0;
-        
-        for (int i = 0; i < bin.length; i++) {
-            if(bin[i] == '1') {
-                count++;
-            }
-        }
+        int count = Integer.bitCount(n);
         
         System.out.println(count);
     }
