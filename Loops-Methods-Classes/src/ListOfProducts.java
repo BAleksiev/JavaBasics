@@ -26,7 +26,7 @@ public class ListOfProducts {
             
             Writer writer = new BufferedWriter(new FileWriter("Output.txt"));
             for (Product product : products) {
-                writer.write(product.getPrice() + " " + product.getName() + "\r\n");
+                writer.write(String.format("%.2f %s\r\n", product.getPrice(), product.getName()));
             }
             writer.close();
             
@@ -61,8 +61,10 @@ class Product implements Comparable<Product> {
         
         if(this.price > otherPrice) {
             return 1;
-        } else {
+        } else if(this.price == otherPrice) {
             return 0;
+        } else {
+            return -1;
         }
     }
 }
